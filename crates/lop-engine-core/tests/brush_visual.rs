@@ -1,4 +1,4 @@
-//! Brush visual output tests — generates PNGs to engine-rs/test-output/
+//! Brush visual output tests — generates PNGs to test-output/
 //! Run with: cargo test -p lop-engine-core --test brush_visual -- --nocapture
 
 use std::fs;

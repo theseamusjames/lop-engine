@@ -1204,7 +1204,12 @@ mod tests {
     fn parse_cmyk_psd_file() {
         let manifest_dir = env!("CARGO_MANIFEST_DIR");
         let path = std::path::Path::new(manifest_dir)
-            .join("../../../samples/shippinglabels.psd");
+            .join("../../samples/shippinglabels.psd");
+        // samples/ is local-only (gitignored), like the RAF/DNG comparison inputs.
+        if !path.exists() {
+            println!("{} not found — skipping", path.display());
+            return;
+        }
         let data = std::fs::read(&path)
             .unwrap_or_else(|e| panic!("cannot read {}: {e}", path.display()));
         let doc = read_psd(&data).unwrap();

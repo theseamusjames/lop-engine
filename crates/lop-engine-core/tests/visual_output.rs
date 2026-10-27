@@ -1,4 +1,4 @@
-//! Visual output tests — generates PNG images to engine-rs/test-output/ for human review.
+//! Visual output tests — generates PNG images to test-output/ for human review.
 //! Run with: cargo test -p lop-engine-core --test visual_output -- --nocapture
 
 use std::fs;
