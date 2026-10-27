@@ -44,7 +44,7 @@ cargo test --workspace
 
 Some tests compare decoder output against camera samples that aren't in the
 repo. Put them in `samples/` at the repo root (gitignored); without them those
-tests print a skip message or stay `#[ignore]`d. The visual tests in
+tests print a skip message and pass. The visual tests in
 `crates/lop-engine-core/tests/` write PNGs to `test-output/` for a human to
 review.
 

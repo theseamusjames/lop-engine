@@ -197,7 +197,8 @@ adds `flags` + `uncompressed_size` for a 32-byte header (flags 0 = raw,
 - Test the math, not the rendering. GPU code isn't exercised by
   `cargo test`; hosts cover it end to end (Lopsy's Playwright suite).
 - Tests that need camera/PSD samples read them from `samples/` at the repo
-  root (gitignored) and skip or stay `#[ignore]`d when they're absent.
+  root (gitignored) and must print a skip message and return when they're
+  absent, so `cargo test` stays green without them.
 
 ## Releases
 
