@@ -15,7 +15,7 @@ uniform vec2 u_texelSize;
 // code put zero displacement on the 127|255 / 128|0 carry, where backends
 // that evaluate floor() and mod() with different precision tore the field
 // along every zero-crossing (#1212). Must match DISP_CENTER / DISP_SCALE in
-// src/tools/liquify/liquify.ts.
+// Lopsy's src/tools/liquify/liquify.ts.
 const float DISP_CENTER = 32768.0;
 const float DISP_SCALE = 32767.0;
 
