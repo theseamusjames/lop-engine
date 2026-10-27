@@ -2,7 +2,7 @@
 
 Lop Engine is the GPU-first Rust/WASM image-editing engine behind
 [Lopsy](https://github.com/theseamusjames/lopsy.art). Lopsy is its main
-consumer: it pins a tagged release through a git dependency (its `engine/`
+consumer: it pins an engine commit through a git dependency (its `engine/`
 crate re-exports `lop-engine-wasm`). Keep the engine app-agnostic. Don't put
 host UI or state concepts in here; expose primitives the host drives.
 
@@ -201,11 +201,12 @@ adds `flags` + `uncompressed_size` for a 32-byte header (flags 0 = raw,
 
 ## Releases
 
-- Version the workspace in `Cargo.toml` (`[workspace.package] version`) and
-  tag releases `vX.Y.Z`. Hosts pin a tag.
-- To ship an engine change to Lopsy: tag a release here, then bump the tag
-  in Lopsy's `engine/Cargo.toml`, run `cargo update -p lop-engine-wasm` in
-  `engine/` and rebuild with `npm run wasm:build`.
+- Version the workspace in `Cargo.toml` (`[workspace.package] version`).
+  Releases are tagged `vX.Y.Z`. Hosts pin a commit (`rev`) or a release tag.
+- To ship an engine change to Lopsy: merge it to `main` here, then set `rev`
+  in Lopsy's `engine/Cargo.toml` to the new commit, run
+  `cargo update -p lop-engine-wasm` in `engine/` and rebuild with
+  `npm run wasm:build`.
 
 ## Git
 

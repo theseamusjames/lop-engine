@@ -84,7 +84,8 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-lop-engine-wasm = { git = "https://github.com/theseamusjames/lop-engine", tag = "v0.1.0" }
+# Pin a commit (rev) or, once one exists, a release tag (tag = "vX.Y.Z").
+lop-engine-wasm = { git = "https://github.com/theseamusjames/lop-engine", rev = "<commit sha>" }
 
 # Profiles only apply from the crate being built, so set them here.
 [profile.release]
@@ -107,7 +108,7 @@ pub use lop_engine_wasm::*;
 Then run `wasm-pack build --target web` in that crate.
 
 To develop the engine and an app side by side, point cargo at a local
-checkout instead of the git tag. Put this in the app crate's
+checkout instead of the pinned commit. Put this in the app crate's
 `.cargo/config.toml` and keep that file out of version control:
 
 ```toml
