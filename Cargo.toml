@@ -5,6 +5,13 @@ members = [
     "crates/lop-engine-wasm",
 ]
 
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["Seamus James"]
+repository = "https://github.com/theseamusjames/lop-engine"
+homepage = "https://github.com/theseamusjames/lop-engine"
+
 [profile.release]
 opt-level = 3
 lto = "thin"

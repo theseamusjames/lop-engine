@@ -1,0 +1,13 @@
+# Cargo build output
+/target/
+
+# wasm-pack output (when building the crate directly)
+pkg/
+
+# Visual test output (tests/visual_output.rs, tests/brush_visual.rs)
+/test-output/
+
+# Local-only camera/PSD samples used by the decoder comparison tests
+/samples/
+
+.DS_Store
