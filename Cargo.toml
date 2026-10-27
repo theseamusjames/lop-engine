@@ -1,8 +1,8 @@
 [workspace]
 resolver = "2"
 members = [
-    "crates/lopsy-core",
-    "crates/lopsy-wasm",
+    "crates/lop-engine-core",
+    "crates/lop-engine-wasm",
 ]
 
 [profile.release]
