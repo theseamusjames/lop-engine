@@ -365,7 +365,7 @@ pub fn set_brush_texture_state(engine: &mut Engine, has_texture: bool, scale: f3
     engine.inner.brush_texture_blend_mode = blend_mode;
 }
 
-// Built-in brush tip bitmaps — auto-generated from engine-rs/brushes/*.png
+// Built-in brush tip bitmaps — auto-generated from crates/lop-engine-wasm/brushes/*.png
 include!(concat!(env!("OUT_DIR"), "/builtin_brushes.rs"));
 
 #[wasm_bindgen(js_name = "getBuiltinBrushTip")]

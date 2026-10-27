@@ -1,8 +1,10 @@
 use std::fs;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 
 fn main() {
-    let brushes_dir = Path::new("../../brushes");
+    // Resolved from the manifest so the tips are found wherever cargo checks
+    // the crate out (workspace, git dependency, or published package).
+    let brushes_dir: PathBuf = Path::new(&std::env::var("CARGO_MANIFEST_DIR").unwrap()).join("brushes");
     println!("cargo:rerun-if-changed={}", brushes_dir.display());
 
     let out_dir = std::env::var("OUT_DIR").unwrap();
@@ -12,7 +14,7 @@ fn main() {
     let mut match_arms = String::new();
     let mut list_entries = String::new();
 
-    let abs_brushes = fs::canonicalize(brushes_dir).unwrap_or_else(|_| brushes_dir.to_path_buf());
+    let abs_brushes = fs::canonicalize(&brushes_dir).unwrap_or_else(|_| brushes_dir.clone());
     if let Ok(entries) = fs::read_dir(&abs_brushes) {
         let mut names: Vec<(String, String)> = Vec::new();
         for entry in entries.flatten() {
