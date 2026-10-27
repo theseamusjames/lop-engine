@@ -90,7 +90,9 @@ lop-engine-wasm = { git = "https://github.com/theseamusjames/lop-engine", rev = 
 # Profiles only apply from the crate being built, so set them here.
 [profile.release]
 opt-level = 3
-lto = "thin"
+# The engine is an upstream crate here, so thin LTO leaves the .wasm ~3%
+# bigger than building lop-engine-wasm directly; fat LTO matches it.
+lto = "fat"
 codegen-units = 1
 panic = "abort"
 strip = true
